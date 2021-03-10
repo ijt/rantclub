@@ -18,6 +18,13 @@ defmodule RantclubWeb.Router do
     pipe_through :browser
 
     live "/", PageLive, :index
+
+    live "/chats", ChatLive.Index, :index
+    live "/chats/new", ChatLive.Index, :new
+    live "/chats/:id/edit", ChatLive.Index, :edit
+
+    live "/chats/:id", ChatLive.Show, :show
+    live "/chats/:id/show/edit", ChatLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
