@@ -34,17 +34,6 @@
   </tbody>
 </table>
 
-<script
-  src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-  integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-  crossorigin="anonymous"></script>
-
 <span><%= live_patch "New Chat", to: Routes.chat_index_path(@socket, :new) %></span>
 
-<div id="smiley" style="font-size: 80px" phx-update="ignore"></div>
-
-<script>
-  $(document).ready(function() {
-    $('#smiley').html('😃')
-  });
-</script>
+<div id="smiley" style="font-size: 80px" phx-hook="Smiley"></div>
