@@ -20,9 +20,9 @@ import {LiveSocket} from "phoenix_live_view"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 let Hooks = {}
-Hooks.Smiley = {
+Hooks.Date = {
     mounted() {
-        this.el.innerHTML = '😃'
+        this.el.innerHTML = `${new Date()}`;
     }
 }
 
