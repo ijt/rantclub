@@ -40,6 +40,15 @@ defmodule RantclubWeb.ChatLive.Index do
     {:noreply, assign(socket, :chats, list_chats())}
   end
 
+  @impl true
+  def handle_event("send-chat", %{"msg" => msg, "username" => username}, socket) do
+    {:ok, c} = Chats.create_chat(%{username: username, body: msg})
+    cs = socket.assigns.chats
+    cs = cs ++ [c]
+    socket = assign(socket, :chats, cs)
+    {:noreply, socket}
+  end
+
   defp list_chats do
     Chats.list_chats()
   end

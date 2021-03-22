@@ -25,6 +25,16 @@ Hooks.Date = {
         this.el.innerHTML = `${new Date()}`;
     }
 }
+Hooks.ChatSend = {
+    mounted() {
+        let viewHook = this
+        this.el.addEventListener("click", function() {
+            let uni = document.getElementById("usernameinput")
+            let ci = document.getElementById("chatinput")
+            viewHook.pushEvent("send-chat", {msg: ci.value, username: uni.value})
+        })
+    }
+}
 
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 

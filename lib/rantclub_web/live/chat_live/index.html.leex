@@ -34,6 +34,8 @@
   </tbody>
 </table>
 
-<span><%= live_patch "New Chat", to: Routes.chat_index_path(@socket, :new) %></span>
+<input id="usernameinput" style="height:38px" placeholder="Your name" phx-update="ignore"/>
+<input id="chatinput" style="height:38px; width:300px" placeholder="Say something"/>
+<button id="newchatbtn" phx-hook="ChatSend">Send</button>
 
 <div id="date" phx-hook="Date" phx-update="ignore"></div>
