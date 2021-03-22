@@ -31,7 +31,24 @@ Hooks.ChatSend = {
         this.el.addEventListener("click", function() {
             let uni = document.getElementById("usernameinput")
             let ci = document.getElementById("chatinput")
-            viewHook.pushEvent("send-chat", {msg: ci.value, username: uni.value})
+            let username = uni.value
+            let msg = ci.value
+            if (msg == "" || username == "") {
+                return
+            }
+            viewHook.pushEvent("send-chat", {msg, username})
+            ci.value = ""
+            ci.focus()
+        })
+    }
+}
+Hooks.ChatInput = {
+    mounted() {
+        this.el.addEventListener("keyup", function(e) {
+            if (e.keyCode == 13) {
+                e.preventDefault()
+                document.getElementById("chatsendbutton").click()
+            }
         })
     }
 }

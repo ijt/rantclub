@@ -15,9 +15,9 @@
   <% end %>
 </div>
 <br>
-<input id="usernameinput" style="height:38px" placeholder="Your name" phx-update="ignore"/>
-<input id="chatinput" style="height:38px; width:300px" placeholder="Say something"/>
-<button id="newchatbtn" phx-hook="ChatSend">Send</button>
+<input id="usernameinput" style="height:38px" placeholder="Your name" phx-update="ignore" />
+<input id="chatinput" style="height:38px; width:300px" placeholder="Say something" phx-hook="ChatInput"/>
+<button id="chatsendbutton" phx-hook="ChatSend">Send</button>
 
 <div>
   Page loaded at <span id="date" phx-hook="Date" phx-update="ignore"></span>
